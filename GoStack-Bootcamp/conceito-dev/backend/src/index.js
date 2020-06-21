@@ -12,4 +12,7 @@ app.get('/', (request, response) => { //Metodo get que recebe dois parâmetros.
   
 })  
 
-app.listen(3333); //adiciona uma porta, podemos escolher qualquer porta acima da porta 80
+app.listen(3333, () => { //adiciona uma porta, podemos escolher qualquer porta acima da porta 80.
+  //Como segundo parâmetro, adicionamos um função automática que mostra quando o servidor estiver no ar
+  console.log('🚀️ Back-end started!');
+}); 
