@@ -1,9 +1,9 @@
 const express = require('express'); //Comportando o express dentro de uma variável 
-const { uuid } = require('uuidv4'); //identificador único universal
+const { uuid, isUuid } = require('uuidv4'); // uiid: identificador único universal isUuid: verificar se o id e valido ou não
 
 const app = express(); //Declarando uma variável que e igual a express
 
-app.use(express.json()) //Adiciona uma rota que todas as funçoes vão passar
+app.use(express.json()); //Adiciona uma rota que todas as funçoes vão passar
 
 /**
  * Métodos HTTP
@@ -24,11 +24,42 @@ app.use(express.json()) //Adiciona uma rota que todas as funçoes vão passar
  * - Request Body: Conteúdo na hora de criar ou editar um recurso (JSON)
  */
 
+/**
+ * Middlewares
+ * 
+ * - Interceptador de requisições que pode interromper totalmente a requisição ou alterar dados da requisição
+ */
+
 const projects = [];
+
+function logRequests(request, response, next) { //Middlewares sempre recebe parâmetros req e res, podendo ter outros parâmetros logo a seguir
+  const { method, url } = request;
+
+  const logLabel = `[${method.toUpperCase()}] ${url}`;
+
+  console.time(logLabel);
+
+  next(); //Próximo middleware
+
+  console.timeEnd(logLabel);
+};
+
+function validateProjectId(request, response, next) {
+  const { id } = request.params;
+
+  if (!isUuid(id)) {
+    return response.status(400).json({ error: 'Ivanlid project ID.' }); //O próximo passo não sera executado se o id não for valido
+  }
+
+  return next();
+}
+
+app.use(logRequests);
+app.use('/projects/:id', validateProjectId); //Aplica apenas nas rotas com esse mesmo caminho
 
 app.get('/projects', (request, response) => { //Metodo get que recebe dois parâmetros.
   //Um endreço, podendo ser '/' e o recurso que usuário quer acessar '/projects'.
-  //E uma função que recebe dois parâmetros resq e resp.
+  //E uma função que recebe dois parâmetros req e res.
   //response permite retornar resposta ao usuário e request guarda requisição do usuário.
 
   const { title } = request.query;
