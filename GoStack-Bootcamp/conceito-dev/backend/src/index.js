@@ -3,6 +3,8 @@ const { response } = require('express');
 
 const app = express(); //Declarando uma variável que e igual a express
 
+app.use(express.json()) //Adiciona uma rota que todas as funçoes vão passar
+
 /**
  * Métodos HTTP
  * 
@@ -10,14 +12,26 @@ const app = express(); //Declarando uma variável que e igual a express
  * - POST: Criar uma informação no back-end
  * - PUT/PATH: Alterar uma informação no back-end
  *    - PUT: Utilizado para alterar varias informações
- *    - PATH: Utilizado para alter informações especificas
+ *    - PATH: Utilizado para alter informações específicas
  * - DELETE: Deletar uma informação no back-end
+ */
+
+/**
+ * Tipos de Parâmetros
+ * 
+ * - Query Params: Filtros e paginação
+ * - Route Params: Identificar recursos (Atualizar/Deletar)
+ * - Request Body: Conteúdo na hora de criar ou editar um recurso (JSON)
  */
 
 app.get('/projects', (request, response) => { //Metodo get que recebe dois parâmetros.
   //Um endreço, podendo ser '/' e o recurso que usuário quer acessar '/projects'.
   //E uma função que recebe dois parâmetros resq e resp.
   //response permite retornar resposta ao usuário e request guarda requisição do usuário.
+  const { title, owner } = request.query;
+
+  console.log(title);
+  console.log(owner);
   return response.json([ //json deve sempre retornado em array [] ou objeto {}
     'Projeto 1',
     'Projeto 2',
@@ -25,6 +39,10 @@ app.get('/projects', (request, response) => { //Metodo get que recebe dois parâ
 });
 
 app.post('/projects', (request, response) => {
+  const { title, owner } = request.body;
+
+  console.log(title);
+  console.log(owner);
   return response.json([
     'Projeto 1',
     'Projeto 2',
@@ -33,6 +51,9 @@ app.post('/projects', (request, response) => {
 });
 
 app.put('/projects/:id', (request, response) => { //Para alterar utilizamos um id
+  const { id } = request.params;
+
+  console.log(id)
   return response.json([
     'Projeto 4',
     'Projeto 2',
