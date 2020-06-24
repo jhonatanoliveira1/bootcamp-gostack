@@ -115,7 +115,7 @@ app.delete('/projects/:id', (request, response) => { //Para deletar utilizamos u
     return response.status(400).json({ error: 'Project not found.'});
   };
 
-  projects.splice(projectIndex, 1) //splice retira uma informação dentro do array 
+  projects.splice(projectIndex, 1); //splice retira uma informação dentro do array 
 
   return response.status(204).send(); //retonar em branco
 });
