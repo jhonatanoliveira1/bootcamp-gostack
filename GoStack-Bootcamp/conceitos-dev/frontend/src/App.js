@@ -25,8 +25,17 @@ function App() {
     });
   }, []);
 
-  function handleAppProject() {
-    setProjects([...projects, `Novo projeto ${Date.now()}`]); //Alterando o valor indiretamente 
+  async function handleAppProject() {
+    // setProjects([...projects, `Novo projeto ${Date.now()}`]); //Alterando o valor indiretamente 
+    
+    const response = await api.post('projects', {
+      title: `Novo projeto ${Date.now()}`,
+      owner: "Jhonatan de Oliveira"
+    });
+
+    const projetc = response.data;
+
+    setProjects([...projects, projetc]);
   }
 
   return (
