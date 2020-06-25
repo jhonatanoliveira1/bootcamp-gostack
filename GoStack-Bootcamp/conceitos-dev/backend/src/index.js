@@ -1,8 +1,10 @@
 const express = require('express'); //Comportando o express dentro de uma variável 
+const cors = require('cors');
 const { uuid, isUuid } = require('uuidv4'); // uiid: identificador único universal isUuid: verificar se o id e valido ou não
 
 const app = express(); //Declarando uma variável que e igual a express
 
+app.use(cors()); //Permite que a URL tenha acesso ao backend 
 app.use(express.json()); //Adiciona uma rota que todas as funçoes vão passar
 
 /**
