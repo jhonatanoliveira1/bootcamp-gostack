@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import {
   Entity,
   Column,
@@ -14,6 +13,9 @@ class User {
 
   @Column()
   name: string;
+
+  @Column()
+  email: string;
 
   @Column()
   password: string;
