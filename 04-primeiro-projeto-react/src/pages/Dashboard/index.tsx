@@ -90,6 +90,7 @@ const Dashboard: React.FC = () => {
               <strong>{repository.full_name}</strong>
               <p>{repository.description}</p>
             </div>
+
             <FiChevronRight size={20} />
           </Link>
         ))}
