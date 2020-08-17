@@ -27,19 +27,6 @@ export const Content = styled.div`
 
     h1 {
       margin-bottom: 24px;
-      color: #f4ede8;
-    }
-
-    a {
-      color: #f4ede8;
-      display: block;
-      margin-top: 24px;
-      text-decoration: none;
-      transition: color 0.3s;
-
-      &:hover {
-        color: ${shade(0.2, '#f4ede8')};
-      }
     }
   }
 
