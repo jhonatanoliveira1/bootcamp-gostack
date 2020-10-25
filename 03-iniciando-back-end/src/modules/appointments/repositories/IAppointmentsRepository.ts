@@ -1,5 +1,7 @@
-import Appointments from '../infra/typeorm/entities/Appointments';
+import Appointment from '../infra/typeorm/entities/Appointment';
+import ICreateAppointmentDTO from '../dtos/ICreateAppointmentDTO';
 
 export default interface IAppointmentsRepository {
-  findByDate(data: Date): Promise<Appointments | undefined>;
+  create(data: ICreateAppointmentDTO): Promise<Appointment>;
+  findByDate(data: Date): Promise<Appointment | undefined>;
 }
