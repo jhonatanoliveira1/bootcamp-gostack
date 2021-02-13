@@ -10,12 +10,12 @@ describe('AuthenticateUser', () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
-    const createUser = new CreateUserService(
+    const authenticateUser = new AuthenticateUserService(
       fakeUsersRepository,
       fakeHashProvider,
     );
 
-    const authenticateUser = new AuthenticateUserService(
+    const createUser = new CreateUserService(
       fakeUsersRepository,
       fakeHashProvider,
     );
@@ -23,12 +23,12 @@ describe('AuthenticateUser', () => {
     const user = await createUser.execute({
       name: 'John Doe',
       email: 'johndoe@example.com',
-      password: '123456',
+      password: '123123',
     });
 
     const response = await authenticateUser.execute({
       email: 'johndoe@example.com',
-      password: '123456',
+      password: '123123',
     });
 
     expect(response).toHaveProperty('token');
@@ -47,7 +47,7 @@ describe('AuthenticateUser', () => {
     await expect(
       authenticateUser.execute({
         email: 'johndoe@example.com',
-        password: '123456',
+        password: '123123',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
@@ -56,12 +56,12 @@ describe('AuthenticateUser', () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
-    const createUser = new CreateUserService(
+    const authenticateUser = new AuthenticateUserService(
       fakeUsersRepository,
       fakeHashProvider,
     );
 
-    const authenticateUser = new AuthenticateUserService(
+    const createUser = new CreateUserService(
       fakeUsersRepository,
       fakeHashProvider,
     );
@@ -69,7 +69,7 @@ describe('AuthenticateUser', () => {
     await createUser.execute({
       name: 'John Doe',
       email: 'johndoe@example.com',
-      password: '123456',
+      password: '123123',
     });
 
     await expect(
