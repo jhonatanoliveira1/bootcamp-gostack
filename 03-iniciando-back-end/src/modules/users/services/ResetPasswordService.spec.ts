@@ -1,8 +1,8 @@
 import AppError from '@shared/errors/AppError';
 
-import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
-import FakeUserTokensRepository from '../repositories/fakes/FakeUserTokensRepository';
-import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
+import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
+import FakeUserTokensRepository from '@modules/users/repositories/fakes/FakeUserTokensRepository';
+import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
 
 import ResetPasswordService from './ResetPasswordService';
 
@@ -56,7 +56,7 @@ describe('ResetPasswordService', () => {
     ).rejects.toBeInstanceOf(AppError);
   });
 
-  it('should not be able to reset the password with non-existing user', async () => {
+  it('should not be able to reset the password with a non-existing user', async () => {
     const { token } = await fakeUserTokensRepository.generate(
       'non-existing-user',
     );
