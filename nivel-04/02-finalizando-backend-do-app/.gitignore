@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+build/
+temp/
+.env
+coverage
+
+tmp/*
+!tmp/.gitkeep
