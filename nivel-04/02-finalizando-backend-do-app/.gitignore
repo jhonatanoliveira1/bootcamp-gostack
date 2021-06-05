@@ -4,6 +4,7 @@ build/
 temp/
 .env
 coverage
+dist
 
 tmp/*
 !tmp/.gitkeep
