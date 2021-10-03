@@ -10,7 +10,7 @@ Challenge applied in the GoStack Bootcamp
 
 Clone repository
 ```bash
-git clone https://github.com/jhonatanoliveira1/gostack-desafio-conceitos-react-native.git
+git clone https://github.com/jhonatanoliveira1/bootcamp-gostack.git
 ```
 Install node module folder
 ```bash

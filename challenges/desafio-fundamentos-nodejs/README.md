@@ -10,7 +10,7 @@ Challenge applied in the GoStack Bootcamp
 
 Clone repository
 ```bash
-git clone https://github.com/jhonatanoliveira1/gostack-desafio-fundamentos-nodejs.git
+git clone https://github.com/jhonatanoliveira1/bootcamp-gostack.git
 ```
 Install node module folder
 ```bash
@@ -27,7 +27,7 @@ yarn dev:server
 Start testing
 ```bash
 yarn test
-#yarn test --watchAll 
+#yarn test --watchAll
 ```
 
 ## Testing

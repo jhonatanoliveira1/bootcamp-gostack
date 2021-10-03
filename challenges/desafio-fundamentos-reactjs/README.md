@@ -15,7 +15,7 @@ In this project, we created a front-end with ReactJS for the GoFinances applicat
 
 Clone repository
 ```bash
-git clone https://github.com/jhonatanoliveira1/gostack-desafio-database-upload.git
+git clone https://github.com/jhonatanoliveira1/bootcamp-gostack.git
 ```
 Enter folder
 ```bash
@@ -36,7 +36,7 @@ yarn start
 Start testing
 ```bash
 yarn test
-# yarn test --watchAll 
+# yarn test --watchAll
 ```
 
 ## Testing
@@ -48,7 +48,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## Authors
-	
+
 - Jhonatan de oliveira - [Linkdin](https://www.linkedin.com/in/jhonatan-de-oliveira/)
 
 ## License
